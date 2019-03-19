@@ -27,9 +27,7 @@ public class Container extends JPanel {
 
         game.create();
 
-        try {
-            input = new MouseManager(this, (Input) game);
-        } catch (ClassCastException e) { }
+        input = new MouseManager(this, game);
 
         timer = new Timer(5, update);
         timer.start();

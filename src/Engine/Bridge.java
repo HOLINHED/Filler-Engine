@@ -2,7 +2,7 @@ package Engine;
 
 import java.awt.*;
 
-public abstract class Bridge {
+public abstract class Bridge implements Input {
 
     protected Graphics g;
     protected KeyManager key;

@@ -5,9 +5,7 @@ import Engine.Bridge;
 import java.awt.*;
 import java.util.*;
 
-import Engine.Input;
-
-public class Game1Game extends Bridge implements Input {
+public class Game1Game extends Bridge {
 
     int x;
     int y;
@@ -62,7 +60,7 @@ public class Game1Game extends Bridge implements Input {
 
     @Override
     public void mouseClicked() {
-        System.out.println("MOUSE CLICKED");
+        System.out.println("howdy");
     }
 
     public void close() {
