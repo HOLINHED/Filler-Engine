@@ -8,6 +8,7 @@ public class Container extends JPanel {
 
     private Bridge game;
     private Timer timer;
+    private MouseManager input;
 
      Container(int width, int height, Bridge game) {
 
@@ -25,6 +26,10 @@ public class Container extends JPanel {
         game.setKeymanager(new KeyManager(this));
 
         game.create();
+
+        try {
+            input = new MouseManager(this, (Input) game);
+        } catch (ClassCastException e) { }
 
         timer = new Timer(5, update);
         timer.start();

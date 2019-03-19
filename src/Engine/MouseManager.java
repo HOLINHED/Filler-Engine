@@ -6,33 +6,33 @@ import java.awt.event.MouseListener;
 
 public class MouseManager implements MouseListener {
 
-    public MouseManager(JPanel window) {
+    private Input game;
+
+    MouseManager(JPanel window, Input game) {
+
+        this.game = game;
 
         window.addMouseListener(this);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        game.mouseClicked();
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        game.mousePressed();
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        game.mouseReleased();
     }
 
     @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
+    public void mouseExited(MouseEvent e) { }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
+    public void mouseEntered(MouseEvent e) { }
 }

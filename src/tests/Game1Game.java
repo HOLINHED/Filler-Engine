@@ -5,7 +5,9 @@ import Engine.Bridge;
 import java.awt.*;
 import java.util.*;
 
-public class Game1Game extends Bridge {
+import Engine.Input;
+
+public class Game1Game extends Bridge implements Input {
 
     int x;
     int y;
@@ -56,6 +58,21 @@ public class Game1Game extends Bridge {
             bullets.add(new Paint(mouseX, mouseY, 0,0));
         }
 
+    }
+
+    @Override
+    public void mouseClicked() {
+        System.out.println("MOUSE CLICKED");
+    }
+
+    @Override
+    public void mousePressed() {
+        System.out.println("MOUSE PRESSED");
+    }
+
+    @Override
+    public void mouseReleased() {
+        System.out.println("MOUSE RELEASED");
     }
 
     public void close() {

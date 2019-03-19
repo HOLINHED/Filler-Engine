@@ -1,7 +1,7 @@
 package tests;
 
-        import Engine.Bridge;
-        import Engine.Fillerengine;
+import Engine.Bridge;
+import Engine.Fillerengine;
 
 public class Game1 extends Fillerengine {
 
