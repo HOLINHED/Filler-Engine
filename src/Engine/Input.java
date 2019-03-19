@@ -2,10 +2,10 @@ package Engine;
 
 public interface Input {
 
-    void mouseClicked();
+    default void mouseClicked() { }
 
-    void mousePressed();
+    default void mousePressed() { }
 
-    void mouseReleased();
+    default void mouseReleased() { }
 
 }

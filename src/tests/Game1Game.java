@@ -65,16 +65,6 @@ public class Game1Game extends Bridge implements Input {
         System.out.println("MOUSE CLICKED");
     }
 
-    @Override
-    public void mousePressed() {
-        System.out.println("MOUSE PRESSED");
-    }
-
-    @Override
-    public void mouseReleased() {
-        System.out.println("MOUSE RELEASED");
-    }
-
     public void close() {
         System.out.println("Hello world!");
     }
