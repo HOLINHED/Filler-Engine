@@ -25,11 +25,13 @@ public class MakingVector extends Bridge {
         x += velocity.getX();
         y += velocity.getY();
 
-        Rectangle2D rect = new Rectangle2D.Double(x, y, 30, 30);
+        //Rectangle2D rect = new Rectangle2D.Double(x, y, 30, 30);
 
-        Graphics2D g2 = (Graphics2D) g;
+        //Graphics2D g2 = (Graphics2D) g;
 
-        g2.fill(rect);
+        //g2.fill(rect);
+
+        g.fillRect((int)x,(int)y,50, 50);
 
     }
 
