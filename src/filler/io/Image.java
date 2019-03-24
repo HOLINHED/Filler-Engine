@@ -45,4 +45,8 @@ public class Image {
 
     }
 
+    public static BufferedImage[][] loadTileMap(String path, int size) {
+        return loadTileMap(path, size, size);
+    }
+
 }
