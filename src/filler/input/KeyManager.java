@@ -36,10 +36,7 @@ public class KeyManager implements KeyListener {
     }
 
     public boolean isPressed(char key) {
-
-        final String letter = Character.toString(key);
-
-        return isPressed((int)letter.toUpperCase().toCharArray()[0]);
+        return isPressed((int)Character.toUpperCase(key));
     }
 
 }

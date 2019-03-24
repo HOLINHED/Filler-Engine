@@ -14,6 +14,11 @@ public class LoadingImages extends Bridge {
     }
 
     public void update() {
+
+        if (key.isPressed('A')) {
+            System.out.println("A Pressed!");
+        }
+
         g.drawImage(image, 100, 100, 128, 128, null);
     }
 
