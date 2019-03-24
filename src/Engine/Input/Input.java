@@ -1,4 +1,4 @@
-package Engine;
+package Engine.Input;
 
 public interface Input {
 

@@ -1,4 +1,4 @@
-package Engine;
+package Engine.Draw;
 
 import javax.swing.*;
 import java.awt.event.*;

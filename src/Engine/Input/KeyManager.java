@@ -1,4 +1,4 @@
-package Engine;
+package Engine.Input;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -10,7 +10,7 @@ public class KeyManager implements KeyListener {
 
     private List<Integer> keys;
 
-    KeyManager(JPanel container) {
+    public KeyManager(JPanel container) {
         keys = new ArrayList<>();
 
         container.addKeyListener(this);

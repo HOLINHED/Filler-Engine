@@ -1,4 +1,7 @@
-package Engine;
+package Engine.Draw;
+
+import Engine.Input.KeyManager;
+import Engine.Input.MouseManager;
 
 import javax.swing.*;
 import java.awt.*;

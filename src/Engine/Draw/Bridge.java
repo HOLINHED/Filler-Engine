@@ -1,4 +1,7 @@
-package Engine;
+package Engine.Draw;
+
+import Engine.Input.Input;
+import Engine.Input.KeyManager;
 
 import java.awt.*;
 

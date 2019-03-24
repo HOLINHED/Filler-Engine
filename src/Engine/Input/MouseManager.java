@@ -1,4 +1,4 @@
-package Engine;
+package Engine.Input;
 
 import javax.swing.JPanel;
 import java.awt.event.MouseEvent;
@@ -8,7 +8,7 @@ public class MouseManager implements MouseListener {
 
     private Input game;
 
-    MouseManager(JPanel window, Input game) {
+    public MouseManager(JPanel window, Input game) {
 
         this.game = game;
 
