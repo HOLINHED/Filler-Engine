@@ -68,3 +68,6 @@ fabric.properties
 # Resources folder
 res/
 
+# OS Specific
+.DS_Store
+
