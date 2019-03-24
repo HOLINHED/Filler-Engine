@@ -1,4 +1,4 @@
-package Engine.Input;
+package filler.input;
 
 import javax.swing.JPanel;
 import java.awt.event.MouseEvent;

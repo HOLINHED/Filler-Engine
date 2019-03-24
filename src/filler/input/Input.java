@@ -1,4 +1,4 @@
-package Engine.Input;
+package filler.input;
 
 public interface Input {
 

@@ -1,7 +1,7 @@
-package Engine.Draw;
+package filler.core;
 
-import Engine.Input.KeyManager;
-import Engine.Input.MouseManager;
+import filler.input.KeyManager;
+import filler.input.MouseManager;
 
 import javax.swing.*;
 import java.awt.*;

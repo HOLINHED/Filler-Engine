@@ -1,7 +1,7 @@
 package tests;
 
-import Engine.Draw.Bridge;
-import Engine.Draw.Fillerengine;
+import filler.core.Bridge;
+import filler.core.Fillerengine;
 
 public class Runner extends Fillerengine {
 

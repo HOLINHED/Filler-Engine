@@ -1,7 +1,7 @@
-package Engine.Draw;
+package filler.core;
 
-import Engine.Input.Input;
-import Engine.Input.KeyManager;
+import filler.input.Input;
+import filler.input.KeyManager;
 
 import java.awt.*;
 

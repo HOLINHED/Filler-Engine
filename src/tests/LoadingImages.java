@@ -1,9 +1,9 @@
 package tests;
 
-import Engine.Draw.Bridge;
+import filler.core.Bridge;
 
 import java.awt.image.BufferedImage;
-import Engine.IO.Image;
+import filler.io.Image;
 
 public class LoadingImages extends Bridge {
 
