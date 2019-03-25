@@ -18,6 +18,11 @@ public class Vector {
         return Math.sqrt((x * x) + (y * y));
     }
 
+    public void addVector(Vector other) {
+        x += other.getX();
+        y += other.getY();
+    }
+
     public void setX(double x) {
         this.x = x;
     }
