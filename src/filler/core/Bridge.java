@@ -8,6 +8,7 @@ import java.awt.*;
 public abstract class Bridge implements Input {
 
     protected Graphics g;
+    protected Graphics2D g2d;
     protected KeyManager key;
     protected int WIDTH;
     protected int HEIGHT;
@@ -27,6 +28,7 @@ public abstract class Bridge implements Input {
 
     void setG(Graphics g) {
         this.g = g;
+        this.g2d = (Graphics2D) g;
     }
 
     void setKeymanager(KeyManager key) {
