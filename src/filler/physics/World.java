@@ -13,6 +13,8 @@ public class World {
 
     public void update() {
 
+        bodies.forEach(Body::update);
+
     }
 
     public void add(Body body) {

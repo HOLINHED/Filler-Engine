@@ -18,6 +18,11 @@ public class Vector {
         return Math.sqrt((x * x) + (y * y));
     }
 
+    public void setMag(double mag, double angle) {
+        x = mag * Math.cos(angle);
+        y = mag * Math.sin(angle);
+    }
+
     public void addVector(Vector other) {
         x += other.getX();
         y += other.getY();

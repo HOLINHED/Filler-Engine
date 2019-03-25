@@ -14,6 +14,11 @@ public class Scalar {
         this(0,0);
     }
 
+    public void addVector(Vector toAdd) {
+        x += toAdd.getX();
+        y += toAdd.getY();
+    }
+
     public double getX() {
         return x;
     }
