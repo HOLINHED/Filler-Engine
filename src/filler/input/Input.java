@@ -8,4 +8,10 @@ public interface Input {
 
     default void mouseReleased() { }
 
+    default void keyPressed() { }
+
+    default void keyReleased() { }
+
+    default void keyTyped() { }
+
 }

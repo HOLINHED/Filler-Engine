@@ -26,7 +26,7 @@ public class Container extends JPanel {
 
         ActionListener update = event -> repaint();
 
-        game.setKeymanager(new KeyManager(this));
+        game.setKeymanager(new KeyManager(this, game));
 
         game.create();
 

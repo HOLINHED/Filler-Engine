@@ -9,9 +9,13 @@ import javax.swing.JPanel;
 public class KeyManager implements KeyListener {
 
     private List<Integer> keys;
+    private int key;
+    private Input game;
 
-    public KeyManager(JPanel container) {
+    public KeyManager(JPanel container, Input game) {
         keys = new ArrayList<>();
+
+        this.game = game;
 
         container.addKeyListener(this);
     }
@@ -19,17 +23,23 @@ public class KeyManager implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (!keys.contains(e.getKeyCode())) {
+            key = e.getKeyCode();
             keys.add(e.getKeyCode());
         }
+        game.keyPressed();
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         keys.remove((Integer)e.getKeyCode());
+        game.keyReleased();
+        key = e.getKeyCode();
     }
 
     @Override
-    public void keyTyped(KeyEvent e) { }
+    public void keyTyped(KeyEvent e) {
+        game.keyTyped();
+    }
 
     public boolean isPressed(int keyCode) {
         return keys.contains(keyCode);
@@ -37,6 +47,10 @@ public class KeyManager implements KeyListener {
 
     public boolean isPressed(char key) {
         return isPressed((int)Character.toUpperCase(key));
+    }
+
+    public int getKey() {
+        return key;
     }
 
 }

@@ -8,11 +8,11 @@ public class MouseManager implements MouseListener {
 
     private Input game;
 
-    public MouseManager(JPanel window, Input game) {
+    public MouseManager(JPanel container, Input game) {
 
         this.game = game;
 
-        window.addMouseListener(this);
+        container.addMouseListener(this);
     }
 
     @Override

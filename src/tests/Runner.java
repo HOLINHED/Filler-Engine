@@ -13,6 +13,7 @@ public class Runner extends Fillerengine {
     public static void main(String... args) {
         //new Runner(new LoadingImages());
         //new Runner(new MakingVector());
-        new Runner(new LoadingTileMap());
+        //new Runner(new LoadingTileMap());
+        new Runner(new KeyInputTest());
     }
 }
