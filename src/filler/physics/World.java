@@ -81,5 +81,18 @@ public class World {
         return false;
     }
 
+    public static boolean intersects(double x1, double y1, double x2, double y2,
+                                     double x3, double y3, double x4, double y4) {
+        double denominator = ((x2 - x1) * (y4 - y3)) - ((y2 - y1) * (x4 - x3));
+        double numerator1 = ((y1 - y3) * (x4 - x3)) - ((x1 - x3) * (y4 - y3));
+        double numerator2 = ((y1 - y3) * (x2 - x1)) - ((x1 - x3) * (y2 - y1));
+
+        if (denominator == 0) return numerator1 == 0 && numerator2 == 0;
+
+        double r = numerator1 / denominator;
+        double s = numerator2 / denominator;
+
+        return (r >= 0 && r <= 1) && (s >= 0 && s <= 1);
+    }
 
 }
