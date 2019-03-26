@@ -31,7 +31,7 @@ public class PhysicsInit extends Bridge {
                 new Scalar(0,50),
         };
 
-        player = new Body(pos, new Scalar(25,25), new Vector(0,0), new Vector(0.01,0));
+        player = new Body(pos, new Scalar(25,25), Vector.fromAngle(Math.PI / 4, 2), new Vector(0,0));
 
         world.add(player);
     }
