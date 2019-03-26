@@ -1,5 +1,9 @@
 package filler.physics;
 
+/**
+ * A Body is a storing information about a shape that make it easier to manipulate in the world.
+ * bodies have an update method, that updates position, velocity, and acceleration of the body.
+ */
 public class Body {
 
     public static final int NONE = 0;
@@ -14,6 +18,21 @@ public class Body {
     private double angle;
     private int collision = 0;
 
+    /**
+     *
+     * @param vertices An array of <code>Scalars</code> that the body will use to define
+     *                 it's vertices.
+     *
+     * @param position A Scalar the defines the position of this body. Mostly used to define the midpoint of the shape.
+     *
+     * @param velocity The initial velocity that the body should be created with.
+     *
+     * @param acceleration The initial acceleration that the body should be made with.
+     *
+     * @param angle The angle at which the body should be rotated.
+     *
+     * @param mass The mass of this body. Mostly used for elastic collisions.
+     */
     public Body(Scalar[] vertices, Scalar position, Vector velocity,
                 Vector acceleration, double angle, double mass) {
         this.vertices = vertices;
@@ -46,6 +65,9 @@ public class Body {
         this(vertices, new Scalar(0,0));
     }
 
+    /**
+     * Updates the position, velocity, and acceleration of this body.
+     */
     public void update() {
 
         velocity.addVector(acceleration);
@@ -102,8 +124,22 @@ public class Body {
         this.mass = mass;
     }
 
+    /**
+     * @param type The type of collision this body should use.
+     *             as static finals on top of this class.
+     */
     public void setCollision(int type) {
         this.collision = type <= 3 && type >= 0 ? type : 0;
+    }
+
+    /**
+     *
+     * @param points How many vertices the shape should have.
+     *
+     * @return Body A body with the specified amount of vertices
+     */
+    public static Body makeBody(int points) {
+        return null;
     }
 
 }

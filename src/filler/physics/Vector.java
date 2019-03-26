@@ -28,6 +28,19 @@ public class Vector {
         y += other.getY();
     }
 
+    public void invert() {
+        invertX();
+        invertY();
+    }
+
+    public void invertX() {
+        x *= -1;
+    }
+
+    public void invertY() {
+        y *= -1;
+    }
+
     public void setX(double x) {
         this.x = x;
     }
