@@ -84,6 +84,26 @@ public class Body {
         return vertices;
     }
 
+    /**
+     * @return An array containing an array of each x and y position.
+     */
+    public double[][] getVerticiesArray() {
+
+        double[] xPos = new double[vertices.length];
+        double[] yPos = new double[vertices.length];
+
+        for (int i = 0; i < vertices.length; i++) {
+            xPos[i] = vertices[i].getX();
+            yPos[i] = vertices[i].getY();
+        }
+
+        return new double[][] {
+                xPos,
+                yPos,
+        };
+
+    }
+
     public Scalar getPosition() {
         return position;
     }
