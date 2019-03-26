@@ -1,14 +1,17 @@
 package filler.physics;
 
 /**
+ * TODO: Make the body calculate it's collisions instead of outside of the world.
+ *
  * A Body is a storing information about a shape that make it easier to manipulate in the world.
  * bodies have an update method, that updates position, velocity, and acceleration of the body.
  */
 public class Body {
 
     public static final int NONE = 0;
-    public static final int STATIC = 1;
-    public static final int ELASTIC = 2;
+    public static final int BOUND = 1;
+    public static final int STATIC = 2;
+    public static final int ELASTIC = 3;
 
     private Scalar[] vertices;
     private Scalar position;
