@@ -2,6 +2,10 @@ package filler.physics;
 
 public class Body {
 
+    public static final int NONE = 0;
+    public static final int STATIC = 1;
+    public static final int ELASTIC = 2;
+
     private Scalar[] vertices;
     private Scalar position;
     private Vector velocity;
