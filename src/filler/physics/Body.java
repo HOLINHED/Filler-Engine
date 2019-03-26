@@ -12,6 +12,7 @@ public class Body {
     private Vector acceleration;
     private double mass;
     private double angle;
+    private int collision = 0;
 
     public Body(Scalar[] vertices, Scalar position, Vector velocity,
                 Vector acceleration, double angle, double mass) {
@@ -101,8 +102,8 @@ public class Body {
         this.mass = mass;
     }
 
-    public static Body create(int points) {
-        return null;
+    public void setCollision(int type) {
+        this.collision = type <= 3 && type >= 0 ? type : 0;
     }
 
 }

@@ -29,7 +29,7 @@ public class World {
         return false;
     }
 
-    public static boolean testCollisionPoint(Body body, Scalar points) {
+    public static boolean testCollisionPoint(Body body, Scalar point) {
         return false;
     }
 
