@@ -32,7 +32,8 @@ public class PhysicsInit extends Bridge {
                 new Scalar(0,50),
         };
 
-        player = new Body(pos, new Scalar(25,25), Vector.fromAngle(Math.PI / 1, 2), new Vector(0,0));
+        player = new Body(pos, new Scalar(25,25), Vector.fromAngle(Math.PI / 4, 2),
+                new Vector(0,0.1));
 
         world.add(player);
     }
@@ -44,12 +45,13 @@ public class PhysicsInit extends Bridge {
 
         double x = player.getPosition().getX();
         if (x < 25 || x > WIDTH - 25) {
-            System.out.println("GOT HERE!");
+            System.out.println("INVERT X");
             player.getVelocity().invertX();
         }
 
-        if (player.getPosition().getY() < 25 || player.getPosition().getX() > HEIGHT - 25) {
-            System.out.println("GOT HERE!");
+        double y = player.getPosition().getY();
+        if (y < 25 || y > HEIGHT - 25) {
+            System.out.println("INVERT Y");
             player.getVelocity().invertY();
         }
 
