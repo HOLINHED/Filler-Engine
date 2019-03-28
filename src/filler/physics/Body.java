@@ -64,10 +64,6 @@ public class Body {
         this(vertices, position, new Vector(0,0));
     }
 
-    public Body(Scalar[] vertices) {
-        this(vertices, new Scalar(0,0));
-    }
-
     /**
      * Updates the position, velocity, and acceleration of this body.
      */
@@ -156,13 +152,38 @@ public class Body {
     }
 
     /**
+     * TODO: TEST THIS METHOD!!!
      *
      * @param points How many vertices the shape should have.
      *
      * @return Body A body with the specified amount of vertices
      */
-    public static Body makeBody(int points) {
-        return null;
+    public static Body makeBody(int points, int radius, int x, int y, double angle) {
+
+        Scalar[] verts = new Scalar[points];
+
+        for (double a = 0.0, i = 0; a < Math.PI * 2; a += (Math.PI * 2)/points, i++) {
+
+            double dx = (radius * (Math.cos((angle) - a))) + x;
+            double dy = (radius * (Math.sin((angle) - a))) + y;
+
+            verts[(int)i] = new Scalar(dx,dy);
+
+        }
+
+        return new Body(verts, new Scalar(x,y));
+    }
+
+    public static Body makeBody(int points, int radius, int x, int y) {
+        return makeBody(points, radius, x, y, -Math.PI/2);
+    }
+
+    public static Body makeBody(int points, int radius, double angle) {
+        return makeBody(points, radius, 0, 0, angle);
+    }
+
+    public static Body makeBody(int points, int radius) {
+        return makeBody(points, radius, 0, 0);
     }
 
 }
