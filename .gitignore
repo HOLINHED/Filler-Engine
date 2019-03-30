@@ -71,3 +71,7 @@ res/
 # OS Specific
 .DS_Store
 
+# Engine specific
+save/
+*.fdat
+
