@@ -2,20 +2,21 @@ package filler.io;
 
 import java.io.*;
 
-public class File<T> {
+public class File<T extends Data> {
 
     private static final String PATH = "./save/";
     private static final String EXTENSION = ".fdat";
 
-    private Data data;
+    private T data;
 
     public File(final String path) {
 
-        data = load(path);
+        //noinspection unchecked
+        data = (T)load(path);
     }
 
     public File(final T data) {
-        this.data = (Data) data;
+        this.data = data;
 
         save();
     }
@@ -30,7 +31,7 @@ public class File<T> {
 
     @SuppressWarnings("unchecked")
     public T data() {
-        return (T) this.data;
+        return this.data;
     }
 
     public static void save(final Data data) throws IOException {
