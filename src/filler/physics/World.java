@@ -114,21 +114,6 @@ public class World {
         return false;
     }
 
-    /**
-     * Checks whether or not the body is outside of the world bounds.
-     *
-     * @param body The body to check
-     *
-     * @param width Width of the world.
-     *
-     * @param height Height of the world
-     *
-     * @return True if the body is less than 0 greater than width/height.
-     */
-    public static boolean isOutside(Body body, int width, int height) {
-        return false;
-    }
-
     public static boolean intersects(double x1, double y1, double x2, double y2,
                                      double x3, double y3, double x4, double y4) {
         double denominator = ((x2 - x1) * (y4 - y3)) - ((y2 - y1) * (x4 - x3));
