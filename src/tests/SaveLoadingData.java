@@ -29,15 +29,15 @@ public class SaveLoadingData extends Bridge {
 
         PlayerData player = new PlayerData();
 
-        try {
-            File.save(player);
-        } catch (Exception e) { e.printStackTrace(); }
+        File<PlayerData> save = new File<>(player);
 
-        PlayerData load = (PlayerData) File.load("PLAYER");
+        File<PlayerData> load = new File<>("PLAYER");
 
-        System.out.println(load.getPos());
-        System.out.println(load.created());
-        System.out.println(load.getName());
+        PlayerData loadf = load.data();
+
+        System.out.println(loadf.getPos());
+        System.out.println(loadf.created());
+        System.out.println(loadf.getName());
 
     }
 

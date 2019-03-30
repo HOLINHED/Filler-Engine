@@ -2,10 +2,32 @@ package filler.io;
 
 import java.io.*;
 
-public class File {
+public class File<T> {
 
     private static final String PATH = "./save/";
     private static final String EXTENSION = ".fdat";
+
+    private Data data;
+
+    public File(final String path) {
+
+        data = load(path);
+    }
+
+    public File(final T data) {
+        this.data = (Data) data;
+
+        try {
+            save((Data)data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public T data() {
+        return (T) this.data;
+    }
 
     public static void save(final Data data) throws IOException {
 
