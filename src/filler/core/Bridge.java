@@ -1,10 +1,11 @@
 package filler.core;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+
 import filler.input.Input;
 import filler.input.KeyManager;
-
-import java.awt.*;
-import java.io.IOException;
 
 public abstract class Bridge implements Input {
 

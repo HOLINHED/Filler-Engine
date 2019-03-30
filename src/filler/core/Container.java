@@ -1,11 +1,13 @@
 package filler.core;
 
+import javax.swing.JPanel;
+import javax.swing.Timer;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.ActionListener;
+
 import filler.input.KeyManager;
 import filler.input.MouseManager;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class Container extends JPanel {
 

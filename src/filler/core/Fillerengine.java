@@ -1,6 +1,6 @@
 package filler.core;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 import java.awt.event.*;
 
 public class Fillerengine extends JFrame {

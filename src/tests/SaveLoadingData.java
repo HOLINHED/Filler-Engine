@@ -1,8 +1,7 @@
 package tests;
 
 import filler.core.Bridge;
-import filler.io.Data;
-import filler.io.File;
+import filler.io.*;
 
 public class SaveLoadingData extends Bridge {
 
