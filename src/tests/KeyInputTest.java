@@ -38,4 +38,9 @@ public class KeyInputTest extends Bridge {
             case 40: System.out.println("key 40 released!");break;
         }
     }
+
+    @Override
+    public void mouseClicked() {
+        System.out.println("mouse clicked!");
+    }
 }

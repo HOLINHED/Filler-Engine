@@ -7,6 +7,7 @@ import java.awt.Point;
 import filler.input.Input;
 import filler.input.KeyManager;
 
+@SuppressWarnings("WeakerAccess")
 public abstract class Bridge implements Input {
 
     protected Graphics g;
@@ -41,7 +42,7 @@ public abstract class Bridge implements Input {
         try {
             mouseX = pos.x;
             mouseY = pos.y;
-        } catch (NullPointerException e) { }
+        } catch (NullPointerException ignored) { }
     }
 
 }

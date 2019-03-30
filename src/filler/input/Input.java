@@ -1,5 +1,6 @@
 package filler.input;
 
+@SuppressWarnings("unused")
 public interface Input {
 
     default void mouseClicked() { }

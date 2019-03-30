@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+@SuppressWarnings("unused")
 public class MouseManager implements MouseListener {
 
     private Input game;

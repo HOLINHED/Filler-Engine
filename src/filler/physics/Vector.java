@@ -1,5 +1,6 @@
 package filler.physics;
 
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class Vector {
 
     private double x;

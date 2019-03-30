@@ -5,6 +5,7 @@ package filler.physics;
  * it also has methods to add vectors.
  */
 
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class Scalar {
 
     private double x;

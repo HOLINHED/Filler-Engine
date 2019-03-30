@@ -9,11 +9,11 @@ import java.awt.event.ActionListener;
 import filler.input.KeyManager;
 import filler.input.MouseManager;
 
+@SuppressWarnings({"FieldCanBeLocal"})
 public class Container extends JPanel {
 
     private Bridge game;
     private Timer timer;
-    private MouseManager input;
 
      Container(int width, int height, Bridge game) {
 
@@ -32,7 +32,7 @@ public class Container extends JPanel {
 
         game.create();
 
-        input = new MouseManager(this, game);
+        new MouseManager(this, game);
 
         timer = new Timer(5, update);
         timer.start();

@@ -6,6 +6,8 @@ package filler.physics;
  * A Body is a storing information about a shape that make it easier to manipulate in the world.
  * bodies have an update method, that updates position, velocity, and acceleration of the body.
  */
+
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class Body {
 
     public static final int NONE = 0;

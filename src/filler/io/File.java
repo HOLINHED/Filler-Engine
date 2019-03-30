@@ -2,6 +2,7 @@ package filler.io;
 
 import java.io.*;
 
+@SuppressWarnings("WeakerAccess")
 public class File<T extends Data> {
 
     private static final String PATH = "./save/";
@@ -29,7 +30,6 @@ public class File<T extends Data> {
         }
     }
 
-    @SuppressWarnings("unchecked")
     public T data() {
         return this.data;
     }
@@ -39,7 +39,8 @@ public class File<T extends Data> {
         try {
 
             java.io.File dir = new java.io.File(PATH);
-            if (!dir.exists()) dir.mkdir();
+            if (!dir.exists()) //noinspection ResultOfMethodCallIgnored
+                dir.mkdir();
 
             FileOutputStream saveFile = new FileOutputStream(PATH + data.getName() + EXTENSION);
             ObjectOutputStream save = new ObjectOutputStream(saveFile);

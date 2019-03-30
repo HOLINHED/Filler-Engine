@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+@SuppressWarnings("unused")
 public class Image {
 
     public static BufferedImage loadImage(String path) {

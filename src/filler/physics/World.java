@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * checking collisions.
  */
 
+@SuppressWarnings("unused")
 public class World {
 
     private List<Body> bodies;

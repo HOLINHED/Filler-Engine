@@ -3,6 +3,7 @@ package tests;
 import filler.core.Bridge;
 import filler.core.Fillerengine;
 
+@SuppressWarnings("ALL")
 public class Runner extends Fillerengine {
 
     public Runner(Bridge game) {

@@ -30,6 +30,7 @@ public class Fillerengine extends JFrame {
 
     }
 
+    @SuppressWarnings("SameParameterValue")
     protected void setRefreshSpeed(final int speed) {
         container.setRefreshSpeed(speed);
     }
