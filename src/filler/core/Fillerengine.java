@@ -2,9 +2,6 @@ package filler.core;
 
 import javax.swing.JFrame;
 import java.awt.event.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Fillerengine extends JFrame {
 
