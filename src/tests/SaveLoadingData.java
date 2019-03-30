@@ -10,14 +10,14 @@ public class SaveLoadingData extends Bridge {
         private int x;
         private int y;
 
-        public PlayerData() {
+        PlayerData() {
             super("PLAYER");
 
             x = 100;
             y = 100;
         }
 
-        public String getPos() {
+        String getPos() {
             return "X: " + x + "  Y: " + y;
         }
 

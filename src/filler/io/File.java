@@ -17,8 +17,12 @@ public class File<T> {
     public File(final T data) {
         this.data = (Data) data;
 
+        save();
+    }
+
+    public void save() {
         try {
-            save((Data)data);
+            save(data);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -11,15 +11,63 @@ import java.util.ArrayList;
 
 public class World {
 
-    List<Body> bodies;
+    private List<Body> bodies;
+    private int worldWidth;
+    private int worldHeight;
 
-    public World() {
+    public World(final int width, final int height) {
+
+        worldWidth = width;
+        worldHeight = height;
+
         bodies = new ArrayList<>();
     }
 
     public void update() {
 
+        // Updates each body
         bodies.forEach(Body::update);
+
+        // Collisions
+        for (Body body : bodies) {
+
+            if (body.getCollision() == Body.NONE) break;
+
+            // TODO: Make this collision static (Constricts points to be within bounds after collision)
+            if (body.getCollision() == Body.BOUND) {
+
+                // Checks all points so check out of bounds < 0 || > WIDTH/HEIGHT
+                // and reverses direction
+                for (Scalar vert : body.getVertices()) {
+                    boolean rev = false;
+
+                    if (vert.getX() > worldWidth || vert.getX() < 0) {
+                        body.getVelocity().invertX();
+                        rev = true;
+                    }
+
+                    if (vert.getY() > worldHeight || vert.getY() < 0) {
+                        body.getVelocity().invertY();
+                        rev = true;
+                    }
+                    if (rev) break;
+                }
+
+                break;
+            }
+
+            if (body.getCollision() == Body.STATIC) {
+
+                break;
+            }
+
+            if (body.getCollision() == Body.ELASTIC) {
+
+                break;
+            }
+
+        }
+
 
     }
 

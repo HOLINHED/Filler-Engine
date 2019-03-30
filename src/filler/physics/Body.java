@@ -143,6 +143,10 @@ public class Body {
         this.mass = mass;
     }
 
+    public int getCollision() {
+        return this.collision;
+    }
+
     /**
      * @param type The type of collision this body should use.
      *             as static finals on top of this class.

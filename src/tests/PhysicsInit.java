@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class PhysicsInit extends Bridge {
 
-    World world;
+    private World world;
 
     // w = 50; h = 50, x = 0 , y = 0
 
@@ -18,12 +18,12 @@ public class PhysicsInit extends Bridge {
      * ----------
      */
 
-    Body player;
+    private Body player;
 
     @Override
     public void create() {
 
-        world = new World();
+        world = new World(WIDTH,HEIGHT);
 
         final Scalar[] pos = new Scalar[] {
                 new Scalar(0,0),
@@ -35,6 +35,8 @@ public class PhysicsInit extends Bridge {
         player = new Body(pos, new Scalar(25,25), Vector.fromAngle(Math.PI / 4, 2),
                 new Vector(0,0.1));
 
+        player.setCollision(Body.BOUND);
+
         world.add(player);
     }
 
@@ -42,18 +44,6 @@ public class PhysicsInit extends Bridge {
     public void update() {
 
         world.update();
-
-        double x = player.getPosition().getX();
-        if (x < 25 || x > WIDTH - 25) {
-            System.out.println("INVERT X");
-            player.getVelocity().invertX();
-        }
-
-        double y = player.getPosition().getY();
-        if (y < 25 || y > HEIGHT - 25) {
-            System.out.println("INVERT Y");
-            player.getVelocity().invertY();
-        }
 
         g.setColor(Color.black);
         g.fillRect((int)player.getPosition().getX() - 25, (int)player.getPosition().getY() - 25, 50, 50);
