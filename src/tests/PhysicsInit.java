@@ -32,8 +32,8 @@ public class PhysicsInit extends Bridge {
                 new Scalar(0,50),
         };
 
-        player = new Body(pos, new Scalar(25,25), Vector.fromAngle(Math.PI / 4, 2),
-                new Vector(0,0.1));
+        player = new Body(pos, new Scalar(25,25), Vector.fromAngle(Math.PI / 4.0, 2.0),
+                new Vector(0.0,0.1));
 
         player.setCollision(Body.BOUND);
 
@@ -46,10 +46,10 @@ public class PhysicsInit extends Bridge {
         world.update();
 
         g.setColor(Color.black);
-        g.fillRect((int)player.getPosition().getX() - 25, (int)player.getPosition().getY() - 25, 50, 50);
+        g.fillOval((int)player.getPosition().getX() - 25, (int)player.getPosition().getY() - 25, 50, 50);
 
         g.setColor(Color.red);
-        g.fillRect((int)player.getPosition().getX()-3, (int)player.getPosition().getY()-3, 6,6);
+        g.fillOval((int)player.getPosition().getX()-3, (int)player.getPosition().getY()-3, 6,6);
     }
 
     @Override

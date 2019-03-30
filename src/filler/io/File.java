@@ -46,9 +46,11 @@ public class File<T> {
             save.writeObject(data);
 
             save.close();
-            System.out.println("Data save complete! " + data.getName() + EXTENSION);
+            System.out.println("[FILLER] Data save complete! " + data.getName() + EXTENSION);
 
-        } catch (FileNotFoundException e) { e.printStackTrace(); }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -64,7 +66,7 @@ public class File<T> {
             data = (Data) restore.readObject();
 
             restore.close();
-            System.out.println("Load complete! " + name + EXTENSION);
+            System.out.println("[FILLER] Load complete! " + name + EXTENSION);
 
 
         } catch (IOException | ClassNotFoundException e) {

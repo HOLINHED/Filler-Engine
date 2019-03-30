@@ -2,6 +2,9 @@ package filler.core;
 
 import javax.swing.JFrame;
 import java.awt.event.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Fillerengine extends JFrame {
 
@@ -30,8 +33,7 @@ public class Fillerengine extends JFrame {
 
     }
 
-    protected void setRefreshSpeed(int speed) {
+    protected void setRefreshSpeed(final int speed) {
         container.setRefreshSpeed(speed);
     }
-
 }
