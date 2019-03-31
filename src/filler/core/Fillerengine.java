@@ -1,37 +1,80 @@
 package filler.core;
 
-import javax.swing.JFrame;
-import java.awt.event.*;
+@SuppressWarnings("FieldCanBeLocal")
+public class Fillerengine implements Runnable{
 
-public class Fillerengine extends JFrame {
-
-    private Container container;
+    private Window window;
+    private Thread thread;
+    private boolean running = false;
+    private double UPDATE_CAP = 1.0 / 60.0;
 
     public Fillerengine(int width, int height, Bridge game, String... title) {
 
-        super(title.length > 0 ? title[0] : "FILLER ENGINE");
-
-        container = new Container(width, height, game);
-
-        this.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                game.close();
-                super.windowClosing(e);
-            }
-        });
-
-        add(container);
-        setResizable(false);
-        pack();
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
-        setLocationRelativeTo(null);
-
+        window = new Window(width, height, game, title);
     }
 
-    @SuppressWarnings("SameParameterValue")
-    protected void setRefreshSpeed(final int speed) {
-        container.setRefreshSpeed(speed);
+    protected void start() {
+
+        thread = new Thread(this);
+
+        thread.run();
+    }
+
+    @Override
+    public void run() {
+
+        running = true;
+
+        boolean render;
+        double firstTime;
+        double lastTime = System.nanoTime() / 1e9;
+        double passedTime;
+        double unprocessedTime = 0;
+
+        double frameTime = 0;
+        int frames = 0;
+        int fps;
+
+        while (running) {
+
+            render = false;
+
+            firstTime = System.nanoTime() / 1e9;
+            passedTime = firstTime - lastTime;
+            lastTime = firstTime;
+
+            unprocessedTime += passedTime;
+            frameTime += passedTime;
+
+            while (unprocessedTime >= UPDATE_CAP) {
+
+                unprocessedTime -= UPDATE_CAP;
+                render = true;
+
+                if (frameTime >= 1.0) {
+
+                    frameTime = 0;
+                    fps = frames;
+                    frames = 0;
+                    window.sendFps(fps);
+                }
+            }
+
+            if (render) {
+                window.update();
+                frames += 1;
+            } else {
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @SuppressWarnings("unused")
+    protected void setFrameRate(final int frameRate) {
+        this.UPDATE_CAP = 1.0 / (double)frameRate;
     }
 }

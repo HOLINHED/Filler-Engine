@@ -1,21 +1,18 @@
 package filler.core;
 
 import javax.swing.JPanel;
-import javax.swing.Timer;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.ActionListener;
 
 import filler.input.KeyManager;
 import filler.input.MouseManager;
 
 @SuppressWarnings({"FieldCanBeLocal"})
-public class Container extends JPanel {
+class Container extends JPanel {
 
     private Bridge game;
-    private Timer timer;
 
-     Container(int width, int height, Bridge game) {
+    Container(int width, int height, Bridge game) {
 
         this.game = game;
 
@@ -26,16 +23,11 @@ public class Container extends JPanel {
 
         setFocusable(true);
 
-        ActionListener update = event -> repaint();
-
         game.setKeymanager(new KeyManager(this, game));
 
         game.create();
 
         new MouseManager(this, game);
-
-        timer = new Timer(5, update);
-        timer.start();
 
     }
 
@@ -51,8 +43,8 @@ public class Container extends JPanel {
         g.dispose();
     }
 
-    void setRefreshSpeed(int speed) {
-         timer.setDelay(speed);
+    protected void sendFps(int fps) {
+        game.setFps(fps);
     }
 
 }

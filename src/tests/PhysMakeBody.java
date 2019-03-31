@@ -4,19 +4,11 @@ import filler.core.Bridge;
 import filler.physics.*;
 import java.awt.*;
 
+import static filler.physics.Body.*;
+
 public class PhysMakeBody extends Bridge {
 
     private World world;
-
-    // w = 50; h = 50, x = 0 , y = 0
-
-    /**
-     * ----------
-     * -        -
-     * -        -
-     * -        -
-     * ----------
-     */
 
     private Body player;
 
@@ -25,22 +17,12 @@ public class PhysMakeBody extends Bridge {
 
         world = new World(WIDTH,HEIGHT);
 
-        final Scalar[] pos = new Scalar[] {
-                new Scalar(0,0),
-                new Scalar(50,0),
-                new Scalar(50,50),
-                new Scalar(0,50),
-        };
-
-        //player = new Body(pos, new Scalar(25,25), Vector.fromAngle(Math.PI / 4.0, 2.0),
-        //        new Vector(0.0,0.1));
-
-        player = Body.makeBody(4,25,25,25,-Math.PI/8);
+        player = makeBody(4,25,25,25,-Math.PI/8);
 
         player.getVelocity().setMag(2,Math.PI/4);
-        player.getAcceleration().setY(0.1);
+        player.getAcceleration().setY(0.5);
 
-        player.setCollision(Body.BOUND);
+        player.setCollision(BOUND);
 
         world.add(player);
     }
@@ -55,6 +37,9 @@ public class PhysMakeBody extends Bridge {
 
         g.setColor(Color.red);
         g.fillOval((int)player.getPosition().getX()-3, (int)player.getPosition().getY()-3, 6,6);
+
+        g.setColor(Color.black);
+        g.drawString("FPS: " + fps, 10, 20);
     }
 
     @Override

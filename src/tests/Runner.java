@@ -8,7 +8,8 @@ public class Runner extends Fillerengine {
 
     public Runner(Bridge game) {
         super(400,400, game);
-        setRefreshSpeed(5);
+        setFrameRate(121);
+        start();
     }
 
     public static void main(String... args) {
@@ -17,7 +18,7 @@ public class Runner extends Fillerengine {
         //new Runner(new LoadingTileMap());
         //new Runner(new KeyInputTest());
         //new Runner(new PhysicsInit());
-        new Runner(new SaveLoadingData());
-        //new Runner(new PhysMakeBody());
+        //new Runner(new SaveLoadingData());
+        new Runner(new PhysMakeBody());
     }
 }

@@ -17,10 +17,12 @@ public abstract class Bridge implements Input {
     protected int HEIGHT;
     protected int mouseX;
     protected int mouseY;
+    protected int fps;
 
     public Bridge() {
         mouseX = 0;
         mouseY = 0;
+        fps = 0;
     }
 
     abstract public void create();
@@ -36,6 +38,10 @@ public abstract class Bridge implements Input {
 
     void setKeymanager(KeyManager key) {
         this.key = key;
+    }
+
+    void setFps(int fps) {
+        this.fps = fps;
     }
 
     void updateMousePosition(Point pos) {

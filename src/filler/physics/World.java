@@ -7,6 +7,8 @@ import java.util.ArrayList;
  * The World manages all bodies. it automatically updates them, and also
  * checks for collisions. The world also provides static methods for
  * checking collisions.
+ *
+ * @author Dawid klatkiewicz
  */
 
 @SuppressWarnings("unused")
@@ -16,6 +18,13 @@ public class World {
     private int worldWidth;
     private int worldHeight;
 
+    /**
+     * @param width Width of the world. Can be different than the width
+     *              of the screen.
+     *
+     * @param height Height of the world. Can be different than the height
+     *               of the screen.
+     */
     public World(final int width, final int height) {
 
         worldWidth = width;
@@ -32,6 +41,7 @@ public class World {
         // Collisions
         for (Body body : bodies) {
 
+            // Break if no collision
             if (body.getCollision() == Body.NONE) break;
 
             // TODO: Make this collision static (Constricts points to be within bounds after collision)
@@ -40,17 +50,24 @@ public class World {
                 // Checks all points so check out of bounds < 0 || > WIDTH/HEIGHT
                 // and reverses direction
                 for (Scalar vert : body.getVertices()) {
+
+                    // Keeps track of whether object was reversed, because after it was,
+                    // there is not longer a need to keep checking if it's out of bounds.
                     boolean rev = false;
 
+                    // Tests X bounds
                     if (vert.getX() > worldWidth || vert.getX() < 0) {
                         body.getVelocity().invertX();
                         rev = true;
                     }
 
+                    // Tests Y bounds
                     if (vert.getY() > worldHeight || vert.getY() < 0) {
                         body.getVelocity().invertY();
                         rev = true;
                     }
+
+                    // Breaks for loop if reversed
                     if (rev) break;
                 }
 
@@ -59,19 +76,25 @@ public class World {
 
             if (body.getCollision() == Body.STATIC) {
 
+                // TODO: Implement static collision. Static collision is simply reversing x/y direction
+                //       if it collides with another body.
                 break;
             }
 
             if (body.getCollision() == Body.ELASTIC) {
 
+                // TODO: Implement elastic collision. Elastic collision takes into consideration the
+                //       objects' velocity and mass in order to conserve kinetic energy.
                 break;
             }
 
         }
 
-
     }
 
+    /**
+     * @param body The body to add to the world.
+     */
     public void add(Body body) {
         bodies.add(body);
     }
@@ -115,6 +138,13 @@ public class World {
         return false;
     }
 
+    /**
+     * @param x1,y1,x2,y2 The points for the first line
+     *
+     * @param x3,y3,x4,y4 The points for the second line
+     *
+     * @return True if the lines are intersecting, false otherwise.
+     */
     public static boolean intersects(double x1, double y1, double x2, double y2,
                                      double x3, double y3, double x4, double y4) {
         double denominator = ((x2 - x1) * (y4 - y3)) - ((y2 - y1) * (x4 - x3));
