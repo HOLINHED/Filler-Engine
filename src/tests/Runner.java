@@ -19,6 +19,7 @@ public class Runner extends Fillerengine {
         //new Runner(new KeyInputTest());
         //new Runner(new PhysicsInit());
         //new Runner(new SaveLoadingData());
-        Runner runner = new Runner(new PhysMakeBody());
+        //Runner runner = new Runner(new PhysMakeBody());
+        Runner runner = new Runner(new PlaySound());
     }
 }
