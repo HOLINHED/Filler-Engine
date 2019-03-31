@@ -28,7 +28,6 @@ class Container extends JPanel {
         game.create();
 
         new MouseManager(this, game);
-
     }
 
     protected void paintComponent(Graphics g) {
@@ -43,7 +42,7 @@ class Container extends JPanel {
         g.dispose();
     }
 
-    protected void sendFps(int fps) {
+    void sendFps(int fps) {
         game.setFps(fps);
     }
 

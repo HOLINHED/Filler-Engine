@@ -4,18 +4,17 @@ import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-class Window {
+class Window extends JFrame {
 
     private Container container;
-    private JFrame window;
 
     Window(int width, int height, Bridge game, String... title) {
 
-        window = new JFrame(title.length > 0 ? title[0] : "FILLER ENGINE");
+        super(title.length > 0 ? title[0] : "FILLER ENGINE");
 
         container = new Container(width, height, game);
 
-        window.addWindowListener(new WindowAdapter() {
+        this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 game.close();
@@ -23,16 +22,15 @@ class Window {
             }
         });
 
-        window.add(container);
-        window.setResizable(false);
-        window.pack();
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setVisible(true);
-        window.setLocationRelativeTo(null);
+        add(container);
+        setResizable(false);
+        pack();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     void update() {
-        window.repaint();
         container.repaint();
     }
 
