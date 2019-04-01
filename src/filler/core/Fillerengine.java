@@ -1,6 +1,6 @@
 package filler.core;
 
-@SuppressWarnings("FieldCanBeLocal")
+@SuppressWarnings({"unused", "SameParameterValue", "FieldCanBeLocal"})
 public class Fillerengine implements Runnable {
 
     private Window window;
@@ -73,7 +73,6 @@ public class Fillerengine implements Runnable {
         }
     }
 
-    @SuppressWarnings({"unused", "SameParameterValue"})
     protected void setFrameRate(final int frameRate) {
         this.UPDATE_CAP = 1.0 / (double)frameRate;
     }

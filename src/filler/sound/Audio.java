@@ -55,8 +55,7 @@ public class Audio {
         status = "paused";
     }
 
-    public void resume() throws UnsupportedAudioFileException, IOException,
-            LineUnavailableException {
+    public void resume() {
 
         if (status.equals("playing")) return;
 
@@ -72,8 +71,7 @@ public class Audio {
         clip.close();
     }
 
-    public void jump(long c) throws UnsupportedAudioFileException, IOException,
-            LineUnavailableException {
+    public void jump(long c) {
 
         if (c > 0 && c < clip.getMicrosecondLength()) {
             clip.stop();
@@ -85,9 +83,16 @@ public class Audio {
         }
     }
 
-    public void resetAudioStream() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
-        audioInputStream = AudioSystem.getAudioInputStream(new File(filePath).getAbsoluteFile());
-        clip.open(audioInputStream);
+    public void resetAudioStream() {
+
+        try {
+            audioInputStream = AudioSystem.getAudioInputStream(
+                    new File(filePath).getAbsoluteFile());
+            clip.open(audioInputStream);
+        } catch (LineUnavailableException | IOException |
+                UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        }
     }
 
 }

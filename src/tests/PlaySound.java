@@ -10,6 +10,10 @@ public class PlaySound extends Bridge {
 
         Audio gunshot = new Audio("./res/gunshot.wav", Audio.LOOP);
         gunshot.play();
+
+        gunshot.pause();
+
+        gunshot.resume();
     }
 
     @Override
