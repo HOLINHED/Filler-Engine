@@ -37,6 +37,11 @@ public class Audio {
         if (looping) clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
 
+    public void loop() {
+        clip.loop(Clip.LOOP_CONTINUOUSLY);
+        play();
+    }
+
     public void play() {
 
         clip.start();

@@ -4,7 +4,7 @@ import filler.core.Bridge;
 import filler.core.Fillerengine;
 
 @SuppressWarnings("ALL")
-public class Runner extends Fillerengine {
+public class Runner extends Fillerengine{
 
     public Runner(Bridge game) {
         super(400,400, game);
@@ -19,7 +19,8 @@ public class Runner extends Fillerengine {
         //new Runner(new KeyInputTest());
         //new Runner(new PhysicsInit());
         //new Runner(new SaveLoadingData());
-        //Runner runner = new Runner(new PhysMakeBody());
-        Runner runner = new Runner(new PlaySound());
+        Runner runner = new Runner(new PhysMakeBody());
+        //Runner runner = new Runner(new PlaySound());
+
     }
 }
