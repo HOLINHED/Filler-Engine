@@ -44,7 +44,6 @@ public class World {
             // Break if no collision
             if (body.getCollision() == Body.NONE) break;
 
-            // TODO: Make this collision static (Constricts points to be within bounds after collision)
             if (body.getCollision() == Body.BOUND) {
 
                 // Checks all points so check out of bounds < 0 || > WIDTH/HEIGHT
@@ -54,8 +53,8 @@ public class World {
                     // Tests X bounds
                     if (vert.getX() > worldWidth || vert.getX() < 0) {
 
-                        final double dist1 = distance(vert.getX(), vert.getY(), worldWidth, vert.getY());
-                        final double dist2 = distance(vert.getX(), vert.getY(), 0, vert.getY());
+                        final double dist1 = Math.abs(worldWidth - vert.getX());
+                        final double dist2 = Math.abs(vert.getX());
 
                         double fix = 0;
 
@@ -70,8 +69,8 @@ public class World {
                     // Tests Y bounds
                     if (vert.getY() > worldHeight || vert.getY() < 0) {
 
-                        final double dist1 = distance(vert.getX(), vert.getY(), vert.getX(), worldHeight);
-                        final double dist2 = distance(vert.getX(), vert.getY(), vert.getX(), 0);
+                        final double dist1 = Math.abs(worldHeight - vert.getY());
+                        final double dist2 = Math.abs(vert.getY());
 
                         double fix = 0;
 
@@ -162,8 +161,8 @@ public class World {
     public static boolean intersects(double x1, double y1, double x2, double y2,
                                      double x3, double y3, double x4, double y4) {
         double denominator = ((x2 - x1) * (y4 - y3)) - ((y2 - y1) * (x4 - x3));
-        double numerator1 = ((y1 - y3) * (x4 - x3)) - ((x1 - x3) * (y4 - y3));
-        double numerator2 = ((y1 - y3) * (x2 - x1)) - ((x1 - x3) * (y2 - y1));
+        double numerator1  = ((y1 - y3) * (x4 - x3)) - ((x1 - x3) * (y4 - y3));
+        double numerator2  = ((y1 - y3) * (x2 - x1)) - ((x1 - x3) * (y2 - y1));
 
         if (denominator == 0) return numerator1 == 0 && numerator2 == 0;
 
@@ -174,7 +173,7 @@ public class World {
     }
 
     public static double distance(double x1, double y1, double x2, double y2) {
-        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2-y1, 2));
+        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
 
 }

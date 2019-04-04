@@ -1,6 +1,7 @@
 package tests;
 
 import filler.core.Bridge;
+import filler.input.Key;
 import filler.physics.*;
 import java.awt.*;
 
@@ -22,6 +23,7 @@ public class PhysMakeBody extends Bridge {
 
         player.getVelocity().setMag(2,Math.PI/4);
         player.getAcceleration().setY(0.5);
+        player.getAcceleration().setX(0.25);
 
         player.setCollision(BOUND);
 
@@ -46,6 +48,12 @@ public class PhysMakeBody extends Bridge {
 
         g.setColor(Color.black);
         g.drawString("FPS: " + fps, 10, 20);
+
+        if (key.isPressed(Key.SPACE)) {
+            player.getAcceleration().setY(0.5);
+        } else {
+            player.getAcceleration().setY(0);
+        }
     }
 
     @Override

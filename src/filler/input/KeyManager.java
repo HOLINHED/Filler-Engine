@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class KeyManager implements KeyListener {
 
     private List<Integer> keys;
@@ -48,6 +48,10 @@ public class KeyManager implements KeyListener {
 
     public boolean isPressed(char key) {
         return isPressed((int)Character.toUpperCase(key));
+    }
+
+    public boolean isPressed(Key key) {
+        return isPressed(key.getKeyCode());
     }
 
     public int getKey() {
