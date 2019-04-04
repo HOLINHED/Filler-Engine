@@ -81,6 +81,26 @@ public class Body {
 
     }
 
+    public void moveX(double dist) {
+
+        position.addVector(new Vector(dist, 0));
+
+        for (Scalar point : vertices) {
+            point.addVector(new Vector(dist, 0));
+        }
+
+    }
+
+    public void moveY(double dist) {
+
+        position.addVector(new Vector(0, dist));
+
+        for (Scalar point : vertices) {
+            point.addVector(new Vector(0, dist));
+        }
+
+    }
+
     public Scalar[] getVertices() {
         return vertices;
     }
@@ -158,8 +178,6 @@ public class Body {
     }
 
     /**
-     * TODO: TEST THIS METHOD!!!
-     *
      * @param points How many vertices the shape should have.
      *
      * @return Body A body with the specified amount of vertices

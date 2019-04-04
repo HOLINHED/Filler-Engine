@@ -51,24 +51,38 @@ public class World {
                 // and reverses direction
                 for (Scalar vert : body.getVertices()) {
 
-                    // Keeps track of whether object was reversed, because after it was,
-                    // there is not longer a need to keep checking if it's out of bounds.
-                    boolean rev = false;
-
                     // Tests X bounds
                     if (vert.getX() > worldWidth || vert.getX() < 0) {
+
+                        final double dist1 = distance(vert.getX(), vert.getY(), worldWidth, vert.getY());
+                        final double dist2 = distance(vert.getX(), vert.getY(), 0, vert.getY());
+
+                        double fix = 0;
+
+                        if (dist1 < dist2) fix = -dist1;
+                        if (dist2 < dist1) fix = dist2;
+
+                        body.moveX(fix);
+
                         body.getVelocity().invertX();
-                        rev = true;
                     }
 
                     // Tests Y bounds
                     if (vert.getY() > worldHeight || vert.getY() < 0) {
+
+                        final double dist1 = distance(vert.getX(), vert.getY(), vert.getX(), worldHeight);
+                        final double dist2 = distance(vert.getX(), vert.getY(), vert.getX(), 0);
+
+                        double fix = 0;
+
+                        if (dist1 < dist2) fix = -dist1;
+                        if (dist2 < dist1) fix = dist2;
+
+                        body.moveY(fix);
+
                         body.getVelocity().invertY();
-                        rev = true;
                     }
 
-                    // Breaks for loop if reversed
-                    if (rev) break;
                 }
 
                 break;
@@ -157,6 +171,10 @@ public class World {
         double s = numerator2 / denominator;
 
         return (r >= 0 && r <= 1) && (s >= 0 && s <= 1);
+    }
+
+    public static double distance(double x1, double y1, double x2, double y2) {
+        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2-y1, 2));
     }
 
 }

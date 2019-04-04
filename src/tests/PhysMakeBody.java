@@ -18,7 +18,7 @@ public class PhysMakeBody extends Bridge {
         world = new World(WIDTH,HEIGHT);
 
         //player = makeBody(4,25,25,25, -Math.PI/4);
-        player = makeBody(3, 25,25,25);
+        player = makeBody(12, 25,25,25);
 
         player.getVelocity().setMag(2,Math.PI/4);
         player.getAcceleration().setY(0.5);
@@ -37,10 +37,8 @@ public class PhysMakeBody extends Bridge {
         //g.fillOval((int)player.getPosition().getX() - 25, (int)player.getPosition().getY() - 25, 50, 50);
 
         int[][] poses = player.getVerticesArray();
-        int[] xPos = poses[0];
-        int[] yPos = poses[1];
 
-        Polygon shape = new Polygon(xPos, yPos, xPos.length);
+        Polygon shape = new Polygon(poses[0], poses[1], poses[0].length);
         g.fillPolygon(shape);
 
         g.setColor(Color.red);
