@@ -88,17 +88,17 @@ public class Body {
     /**
      * @return An array containing an array of each x and y position.
      */
-    public double[][] getVerticiesArray() {
+    public int[][] getVerticesArray() {
 
-        double[] xPos = new double[vertices.length];
-        double[] yPos = new double[vertices.length];
+        int[] xPos = new int[vertices.length];
+        int[] yPos = new int[vertices.length];
 
         for (int i = 0; i < vertices.length; i++) {
-            xPos[i] = vertices[i].getX();
-            yPos[i] = vertices[i].getY();
+            xPos[i] = (int) vertices[i].getX();
+            yPos[i] = (int) vertices[i].getY();
         }
 
-        return new double[][] {
+        return new int[][] {
                 xPos,
                 yPos,
         };
