@@ -35,7 +35,7 @@ public class PhysicsInit extends Bridge {
         player = new Body(pos, new Scalar(25,25), Vector.fromAngle(Math.PI / 4.0, 2.0),
                 new Vector(0.0,0.1));
 
-        player.setCollision(Body.BOUND);
+        player.setCollision(Collision.BOUND);
 
         world.add(player);
     }

@@ -17,7 +17,7 @@ public class TestKeyEnum extends Bridge {
         world = new World(WIDTH,HEIGHT);
 
         player = Body.makeBody(4,50,WIDTH/2,HEIGHT/2,Math.PI/4);
-        player.setCollision(Body.BOUND);
+        player.setCollision(Collision.BOUND);
 
         world.add(player);
     }

@@ -10,18 +10,13 @@ package filler.physics;
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class Body {
 
-    public static final int NONE = 0;
-    public static final int BOUND = 1;
-    public static final int STATIC = 2;
-    public static final int ELASTIC = 3;
-
     private Scalar[] vertices;
     private Scalar position;
     private Vector velocity;
     private Vector acceleration;
     private double mass;
     private double angle;
-    private int collision = 0;
+    private Collision collision = Collision.NONE;
 
     /**
      *
@@ -165,7 +160,7 @@ public class Body {
         this.mass = mass;
     }
 
-    public int getCollision() {
+    public Collision getCollision() {
         return this.collision;
     }
 
@@ -173,8 +168,8 @@ public class Body {
      * @param type The type of collision this body should use.
      *             as static finals on top of this class.
      */
-    public void setCollision(int type) {
-        this.collision = type <= 3 && type >= 0 ? type : 0;
+    public void setCollision(Collision type) {
+        this.collision = type;
     }
 
     /**

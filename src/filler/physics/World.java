@@ -42,59 +42,28 @@ public class World {
         for (Body body : bodies) {
 
             // Break if no collision
-            if (body.getCollision() == Body.NONE) break;
+            if (body.getCollision() == Collision.NONE) break;
 
-            if (body.getCollision() == Body.BOUND) {
+            if (body.getCollision() == Collision.BOUND) {
+                doCollisionBound(body);
+                break;
+            }
 
-                // Checks all points so check out of bounds < 0 || > WIDTH/HEIGHT
-                // and reverses direction
-                for (Scalar vert : body.getVertices()) {
+            if (body.getCollision() == Collision.WRAP) {
 
-                    // Tests X bounds
-                    if (vert.getX() > worldWidth || vert.getX() < 0) {
-
-                        final double dist1 = Math.abs(worldWidth - vert.getX());
-                        final double dist2 = Math.abs(vert.getX());
-
-                        double fix = 0;
-
-                        if (dist1 < dist2) fix = -dist1;
-                        if (dist2 < dist1) fix = dist2;
-
-                        body.moveX(fix);
-
-                        body.getVelocity().invertX();
-                    }
-
-                    // Tests Y bounds
-                    if (vert.getY() > worldHeight || vert.getY() < 0) {
-
-                        final double dist1 = Math.abs(worldHeight - vert.getY());
-                        final double dist2 = Math.abs(vert.getY());
-
-                        double fix = 0;
-
-                        if (dist1 < dist2) fix = -dist1;
-                        if (dist2 < dist1) fix = dist2;
-
-                        body.moveY(fix);
-
-                        body.getVelocity().invertY();
-                    }
-
-                }
+                // TODO: Implement wrap collision. Simply wraps the object around the screen.
 
                 break;
             }
 
-            if (body.getCollision() == Body.STATIC) {
+            if (body.getCollision() == Collision.STATIC) {
 
                 // TODO: Implement static collision. Static collision is simply reversing x/y direction
                 //       if it collides with another body.
                 break;
             }
 
-            if (body.getCollision() == Body.ELASTIC) {
+            if (body.getCollision() == Collision.ELASTIC) {
 
                 // TODO: Implement elastic collision. Elastic collision takes into consideration the
                 //       objects' velocity and mass in order to conserve kinetic energy.
@@ -149,6 +118,46 @@ public class World {
      */
     public static boolean testCollisionPoint(Body body, Scalar point) {
         return false;
+    }
+
+    private void doCollisionBound(Body body) {
+        // Checks all points so check out of bounds < 0 || > WIDTH/HEIGHT
+        // and reverses direction
+        for (Scalar vert : body.getVertices()) {
+
+            // Tests X bounds
+            if (vert.getX() > worldWidth || vert.getX() < 0) {
+
+                final double dist1 = Math.abs(worldWidth - vert.getX());
+                final double dist2 = Math.abs(vert.getX());
+
+                double fix = 0;
+
+                if (dist1 < dist2) fix = -dist1;
+                if (dist2 < dist1) fix = dist2;
+
+                body.moveX(fix);
+
+                body.getVelocity().invertX();
+            }
+
+            // Tests Y bounds
+            if (vert.getY() > worldHeight || vert.getY() < 0) {
+
+                final double dist1 = Math.abs(worldHeight - vert.getY());
+                final double dist2 = Math.abs(vert.getY());
+
+                double fix = 0;
+
+                if (dist1 < dist2) fix = -dist1;
+                if (dist2 < dist1) fix = dist2;
+
+                body.moveY(fix);
+
+                body.getVelocity().invertY();
+            }
+
+        }
     }
 
     /**

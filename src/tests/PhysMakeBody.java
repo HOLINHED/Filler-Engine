@@ -23,9 +23,9 @@ public class PhysMakeBody extends Bridge {
 
         player.getVelocity().setMag(2,Math.PI/4);
         player.getAcceleration().setY(0.5);
-        player.getAcceleration().setX(0.25);
+        player.getAcceleration().setX(0.0);
 
-        player.setCollision(BOUND);
+        player.setCollision(Collision.BOUND);
 
         world.add(player);
     }
@@ -52,7 +52,7 @@ public class PhysMakeBody extends Bridge {
         if (key.isPressed(Key.SPACE)) {
             player.getAcceleration().setY(0.5);
         } else {
-            player.getAcceleration().setY(0);
+            //player.getAcceleration().setY(0);
         }
     }
 
