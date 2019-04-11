@@ -16,6 +16,7 @@ public class Body {
     private Vector acceleration;
     private double mass;
     private double angle;
+    private double friction;
     private Collision collision = Collision.NONE;
 
     /**

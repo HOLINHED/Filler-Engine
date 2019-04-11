@@ -6,6 +6,7 @@ import filler.input.Key;
 
 import java.awt.*;
 
+@SuppressWarnings("unused")
 public class TestKeyEnum extends Bridge {
 
     private Body player;
