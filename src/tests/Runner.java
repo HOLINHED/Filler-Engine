@@ -2,13 +2,14 @@ package tests;
 
 import filler.core.Bridge;
 import filler.core.Fillerengine;
+import tests.snake.Snake;
 
 @SuppressWarnings("ALL")
 public class Runner extends Fillerengine{
 
     public Runner(Bridge game) {
         super(400,400, game);
-        setFrameRate(121);
+        setFrameRate(15);
         start();
     }
 
@@ -19,8 +20,9 @@ public class Runner extends Fillerengine{
         //new Runner(new KeyInputTest());
         //new Runner(new PhysicsInit());
         //new Runner(new SaveLoadingData());
-        Runner runner = new Runner(new PhysMakeBody());
+        //Runner runner = new Runner(new PhysMakeBody());
         //Runner runner = new Runner(new PlaySound());
         //new Runner(new TestKeyEnum());
+        new Runner(new Snake());
     }
 }

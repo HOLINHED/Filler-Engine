@@ -13,8 +13,8 @@ public abstract class Bridge implements Input {
     protected Graphics g;
     protected Graphics2D g2d;
     protected KeyManager key;
-    protected int WIDTH;
-    protected int HEIGHT;
+    public int WIDTH;
+    public int HEIGHT;
     protected int mouseX;
     protected int mouseY;
     protected int fps;
