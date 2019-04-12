@@ -13,7 +13,7 @@ public class Fillerengine implements Runnable {
         window = new Window(width, height, game, title);
     }
 
-    protected void start() {
+    public void start() {
 
         thread = new Thread(this);
 
@@ -73,7 +73,7 @@ public class Fillerengine implements Runnable {
         }
     }
 
-    protected void setFrameRate(final int frameRate) {
+    public void setFrameRate(final int frameRate) {
         this.UPDATE_CAP = 1.0 / (double)frameRate;
     }
 }

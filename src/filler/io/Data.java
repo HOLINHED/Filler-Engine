@@ -22,9 +22,9 @@ public abstract class Data implements Serializable {
     }
 
     public String created() {
-        DateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat date = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 
-        return format.format(date);
+        return date.format(this.date);
     }
 
 }

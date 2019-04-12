@@ -5,7 +5,7 @@ import filler.core.Fillerengine;
 import tests.snake.Snake;
 
 @SuppressWarnings("ALL")
-public class Runner extends Fillerengine{
+public class Runner extends Fillerengine {
 
     public Runner(Bridge game) {
         super(400,400, game);
@@ -23,6 +23,11 @@ public class Runner extends Fillerengine{
         //Runner runner = new Runner(new PhysMakeBody());
         //Runner runner = new Runner(new PlaySound());
         //new Runner(new TestKeyEnum());
-        new Runner(new Snake());
+        //new Runner(new Snake());
+
+        Bridge game = new Snake();
+        Fillerengine engine = new Fillerengine(400,400,game);
+        engine.setFrameRate(15);
+        engine.start();
     }
 }
