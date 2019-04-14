@@ -1,7 +1,6 @@
 package tests;
 
-import filler.core.Bridge;
-import filler.core.Fillerengine;
+import filler.core.*;
 import tests.snake.Snake;
 
 @SuppressWarnings("ALL")
@@ -25,8 +24,7 @@ public class Runner extends Fillerengine {
         //new Runner(new TestKeyEnum());
         //new Runner(new Snake());
 
-        Bridge game = new Snake();
-        Fillerengine engine = new Fillerengine(400,400,game);
+        Fillerengine engine = new Fillerengine(400,400, new Snake());
         engine.setFrameRate(15);
         engine.start();
     }
